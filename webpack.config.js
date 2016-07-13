@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var path = require ('path');
+var path = require('path');
 
 module.exports = {
   entry: [
@@ -20,7 +20,7 @@ module.exports = {
     path: __dirname,
     filename: './public/bundle.js'
   },
-  resolve:{
+  resolve: {
     root: __dirname,
     modulesDirectories: [
       'node_modules',
@@ -28,27 +28,27 @@ module.exports = {
       './app/api'
     ],
     alias: {
-      applicationStyles:'app/styles/app.scss',
+      applicationStyles: 'app/styles/app.scss',
       actions: 'app/actions/actions.jsx',
       reducers: 'app/reducers/reducers.jsx'
-  },
-    extensions: ['', '.js','.jsx']
+    },
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
       {
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015']
-          },
-          test: /\.jsx?$/,
-          exclude: /(node_modules|bower_components)/
+          presets: ['react', 'es2015', 'stage-0']
+        },
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/
       }
     ]
   },
-  sassLoader : {
+  sassLoader: {
     includePaths: [
-      path.resolve (__dirname, './node_modules/foundation-sites/scss')
+      path.resolve(__dirname, './node_modules/foundation-sites/scss')
     ]
   },
   devtool: 'cheap-module-eval-source-map'
