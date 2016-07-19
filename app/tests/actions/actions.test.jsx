@@ -4,10 +4,19 @@ var actions = require('actions');
 describe('Actions', () => {
   it('should generate search text action', () => {
     var action = {
-      type: "SET_SEARCH_TEXT",
+      type: 'SET_SEARCH_TEXT',
       searchText: 'Some search text'
     };
     var res = actions.setSearchText(action.searchText);
+
+    expect(res).toEqual(action);
+  });
+
+  it('should generate toggle show completed action', () => {
+    var action = {
+      type: 'TOGGLE_SHOW_COMPLETED'
+    };
+    var res = actions.toggleShowCompleted();
 
     expect(res).toEqual(action);
   });
@@ -22,11 +31,19 @@ describe('Actions', () => {
     expect(res).toEqual(action);
   });
 
-  it('should generate toggle show completed action', () => {
+  it('should generate add todos action object', () => {
+    var todos = [{
+      id: '111',
+      text: 'anything',
+      completed: false,
+      completedAt: undefined,
+      createdAt: 33000
+    }];
     var action = {
-      type: 'TOGGLE_SHOW_COMPLETED'
+      type: 'ADD_TODOS',
+      todos
     };
-    var res = actions.toggleShowCompleted();
+    var res = actions.addTodos(todos);
 
     expect(res).toEqual(action);
   });

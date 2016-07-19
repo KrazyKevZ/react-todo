@@ -1,8 +1,8 @@
-var React = require ('react');
+var React = require('react');
 var ReactDOM = require('react-dom');
-var expect = require('expect');
-var $ = require('jQuery');
 var TestUtils = require('react-addons-test-utils');
+var expect = require('expect');
+var $ = require('jquery');
 
 var {Todo} = require('Todo');
 
@@ -12,7 +12,7 @@ describe('Todo', () => {
   });
 
   it('should dispatch TOGGLE_TODO action on click', () => {
-    var todoData ={
+    var todoData = {
       id: 199,
       text: 'Write todo.test.jsx test',
       completed: true
